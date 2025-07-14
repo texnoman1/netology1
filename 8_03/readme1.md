@@ -25,8 +25,8 @@
 
 ![тест1](images/3.jpg)'
 
-![тест2](images/images/4.jpg)'
+![тест2](images/4.jpg)'
 
-![статистика](images/images/6.jpg)'
+![статистика](images/6.jpg)'
 
 ---
