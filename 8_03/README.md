@@ -91,8 +91,9 @@ backend web_servers    # секция бэкенд
         server s3 127.0.0.1:7777 weight 4 check
 
 
-`При необходимости прикрепитe сюда скриншоты
-![HAProxy без использования домена example.local](https://github.com/texnoman1/netology1/blob/main/8_03/images/3.jpg)`
+
+![HAProxy без использования домена example.local](https://github.com/texnoman1/netology1/blob/main/8_03/images/3.jpg)'
+
 
 ![HAProxy c использованием домена example.local](https://github.com/texnoman1/netology1/blob/main/8_03/images/4.jpg)`
 
