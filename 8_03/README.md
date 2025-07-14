@@ -9,9 +9,12 @@ https://docs.google.com/document/d/1K_HFis7_joHNndpjEMuGQHdSN_RFTveTh-iTWjLSIic/
 Настройте балансировку Round-robin на 4 уровне.
 На проверку направьте конфигурационный файл haproxy, скриншоты, где видно перенаправление запросов на разные серверы при обращении к HAProxy.
 
+```plaintext
 Делаем 2 папки http1, http2 в каждой папке делаем файл index.html с держимым Server 1 :8888 и Server 2: 9999 соответственно. 
-Из папки http1 запускаем python3 -m http.server 8888 --bind 0.0.0.0, из папки http2 запускаем python3 -m http.server 9999 --bind 0.0.0.0.
+Из папки http1 запускаем python3 -m http.server 8888 --bind 0.0.0.0
+из папки http2 запускаем python3 -m http.server 9999 --bind 0.0.0.0.
 при запуске  получаем:
+
 user@u2204:~$ curl http://localhost:8888
 Server 1 :8888
 user@u2204:~$ curl http://localhost:9999
@@ -24,12 +27,11 @@ sudo apt  install haproxy
 sudo nano /etc/haproxy/haproxy.cfg
 перезагружаем:
 sudo systemctl reload haproxy
+```
 
 
 
-Поле для вставки кода...
-
-https://github.com/netology-code/sflt-homeworks/blob/main/2/haproxy/haproxy.cfg
+```plaintext
 добавляем в конфигурационный файл следующие строки:
 
 listen stats  # веб-страница со статистикой
@@ -43,10 +45,11 @@ listen stats  # веб-страница со статистикой
 
 listen web_tcp
 
-	bind :1325
+  bind :1325
 
-	server s1 127.0.0.1:8888 check inter 3s
-	server s2 127.0.0.1:9999 check inter 3s
+  server s1 127.0.0.1:8888 check inter 3s
+  server s2 127.0.0.1:9999 check inter 3s
+```
 
 
 скриншоты:
@@ -64,8 +67,7 @@ listen web_tcp
 ●	HAproxy должен балансировать только тот http-трафик, который адресован домену example.local
 ●	На проверку направьте конфигурационный файл haproxy, скриншоты, где видно перенаправление запросов на разные серверы при обращении к HAProxy c использованием домена example.local и без него.
 
-
-Поле для вставки кода...
+```plaintext
 listen stats  # веб-страница со статистикой
         bind                    :888
         mode                    http
@@ -78,8 +80,8 @@ frontend example  # секция фронтенд
         mode http
         bind :8088
         #default_backend web_servers
-	acl ACL_example.local hdr(host) -i example.local
-	use_backend web_servers if ACL_example.local
+  acl ACL_example.local hdr(host) -i example.local
+  use_backend web_servers if ACL_example.local
 
 backend web_servers    # секция бэкенд
         mode http
@@ -90,6 +92,7 @@ backend web_servers    # секция бэкенд
         server s2 127.0.0.1:9999 weight 3 check
         server s3 127.0.0.1:7777 weight 4 check
 
+```
 
 
 ![HAProxy без использования домена example.local](https://github.com/texnoman1/netology1/blob/main/8_03/images/3.jpg)'
@@ -102,46 +105,4 @@ backend web_servers    # секция бэкенд
 
 ---
 
-### Задание 3
 
-`Приведите ответ в свободной форме........`
-
-1. `Заполните здесь этапы выполнения, если требуется ....`
-2. `Заполните здесь этапы выполнения, если требуется ....`
-3. `Заполните здесь этапы выполнения, если требуется ....`
-4. `Заполните здесь этапы выполнения, если требуется ....`
-5. `Заполните здесь этапы выполнения, если требуется ....`
-6. 
-
-```
-Поле для вставки кода...
-....
-....
-....
-....
-```
-
-`При необходимости прикрепитe сюда скриншоты
-![Название скриншота](ссылка на скриншот)`
-
-### Задание 4
-
-`Приведите ответ в свободной форме........`
-
-1. `Заполните здесь этапы выполнения, если требуется ....`
-2. `Заполните здесь этапы выполнения, если требуется ....`
-3. `Заполните здесь этапы выполнения, если требуется ....`
-4. `Заполните здесь этапы выполнения, если требуется ....`
-5. `Заполните здесь этапы выполнения, если требуется ....`
-6. 
-
-```
-Поле для вставки кода...
-....
-....
-....
-....
-```
-
-`При необходимости прикрепитe сюда скриншоты
-![Название скриншота](ссылка на скриншот)`
