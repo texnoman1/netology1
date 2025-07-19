@@ -7,7 +7,7 @@
 На проверку направить скриншот с командой и результатом ее выполнения
 
 ```bash
-nc -avh --delete --checksum --exclude='.*/' ~/ /tmp/backup/
+rsync -avh --delete --checksum --exclude='.*/' ~/ /tmp/backup/
 -a — архивный режим (сохраняет атрибуты файлов, рекурсивно копирует)
 
 -v — подробный вывод (verbose)
