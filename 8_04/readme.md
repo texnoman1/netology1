@@ -21,8 +21,8 @@
 
 /tmp/backup/ — целевая директория для резервной копии ```
 
-![Выполнение](https://github.com/texnoman1/netology1/blob/main/8_04/images/1.jpg)`
-![тестирование](https://github.com/texnoman1/netology1/blob/main/8_04/images/2.jpg)`
+![Выполнение](https://github.com/texnoman1/netology1/blob/main/8_04/images/1.png)'
+![тестирование](https://github.com/texnoman1/netology1/blob/main/8_04/images/2.png)'
 
 Задание 2
 Написать скрипт и настроить задачу на регулярное резервное копирование домашней директории пользователя с помощью rsync и cron.
@@ -32,8 +32,7 @@
 На проверку направить файл crontab и скриншот с результатом работы утилиты.
 
 создаем скрипт backup_home.sh:
-```
-#!/bin/bash
+``` #!/bin/bash
 
 # Настройки
 BACKUP_DIR="/tmp/backup"
@@ -54,19 +53,12 @@ if [ $? -eq 0 ]; then
     echo "[$(date +'%Y-%m-%d %H:%M:%S')] Резервное копирование успешно завершено" >> "$LOG_FILE"
 else
     echo "[$(date +'%Y-%m-%d %H:%M:%S')] Ошибка при резервном копировании!" >> "$LOG_FILE"
-fi
+fi ```
 
-# Выводим последние строки лога для проверки
-tail -n 5 "$LOG_FILE"
-```
 даем права на выполнение:
-```
-chmod +x ~/backup_home.sh
-```
+``` chmod +x ~/backup_home.sh ```
 Запуск вручную:
-```
-./backup_home.sh
-```
+``` ./backup_home.sh ```
 лог:
 ``` cat /var/log/backup_home.log ```
 
@@ -76,6 +68,6 @@ chmod +x ~/backup_home.sh
 10 12 * * * /bin/bash /home/user/backup_home.sh  # запуск каждый день в 12-30
 crontab -l # проверяем список задач ```
 
-![тестирование в ручном режиме](https://github.com/texnoman1/netology1/blob/main/8_04/images/3.jpg)`
-![Задание crontab](https://github.com/texnoman1/netology1/blob/main/8_04/images/4.jpg)`
-![log выполнения](https://github.com/texnoman1/netology1/blob/main/8_04/images/5.jpg)`
+![тестирование в ручном режиме](https://github.com/texnoman1/netology1/blob/main/8_04/images/3.png)'
+![Задание crontab](https://github.com/texnoman1/netology1/blob/main/8_04/images/4.png)'
+![log выполнения](https://github.com/texnoman1/netology1/blob/main/8_04/images/5.png)'
