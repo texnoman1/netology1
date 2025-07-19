@@ -4,7 +4,7 @@
 Необходимо сделать так, чтобы rsync подсчитывал хэш-суммы для всех файлов, даже если их время модификации и размер идентичны в источнике и приемнике.
 На проверку направить скриншот с командой и результатом ее выполнения
 
-'''rsync -avh --delete --checksum --exclude='.*/' ~/ /tmp/backup/
+``` rsync -avh --delete --checksum --exclude='.*/' ~/ /tmp/backup/
 -a — архивный режим (сохраняет атрибуты файлов, рекурсивно копирует)
 
 -v — подробный вывод (verbose)
@@ -19,7 +19,7 @@
 
 ~/ — исходная директория (домашняя папка пользователя)
 
-/tmp/backup/ — целевая директория для резервной копии'''
+/tmp/backup/ — целевая директория для резервной копии ```
 
 ![Выполнение](https://github.com/texnoman1/netology1/blob/main/8_04/images/1.jpg)`
 ![тестирование](https://github.com/texnoman1/netology1/blob/main/8_04/images/2.jpg)`
@@ -32,7 +32,7 @@
 На проверку направить файл crontab и скриншот с результатом работы утилиты.
 
 создаем скрипт backup_home.sh:
-'''
+```
 #!/bin/bash
 
 # Настройки
@@ -58,23 +58,23 @@ fi
 
 # Выводим последние строки лога для проверки
 tail -n 5 "$LOG_FILE"
-'''
+```
 даем права на выполнение:
-'''
+```
 chmod +x ~/backup_home.sh
-'''
+```
 Запуск вручную:
-'''
+```
 ./backup_home.sh
-'''
+```
 лог:
-''' cat /var/log/backup_home.log '''
+``` cat /var/log/backup_home.log ```
 
 Настройка Cron:
 
-'''crontab -e # открываем кронтаб
+```crontab -e # открываем кронтаб
 10 12 * * * /bin/bash /home/user/backup_home.sh  # запуск каждый день в 12-30
-crontab -l # проверяем список задач '''
+crontab -l # проверяем список задач ```
 
 ![тестирование в ручном режиме](https://github.com/texnoman1/netology1/blob/main/8_04/images/3.jpg)`
 ![Задание crontab](https://github.com/texnoman1/netology1/blob/main/8_04/images/4.jpg)`
