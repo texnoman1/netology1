@@ -1,10 +1,13 @@
+Домашнее задание "Резервное копирование" Девятова Ильи
+
 Задание 1
 Составьте команду rsync, которая позволяет создавать зеркальную копию домашней директории пользователя в директорию /tmp/backup
 Необходимо исключить из синхронизации все директории, начинающиеся с точки (скрытые)
 Необходимо сделать так, чтобы rsync подсчитывал хэш-суммы для всех файлов, даже если их время модификации и размер идентичны в источнике и приемнике.
 На проверку направить скриншот с командой и результатом ее выполнения
 
-``` rsync -avh --delete --checksum --exclude='.*/' ~/ /tmp/backup/
+```bash
+nc -avh --delete --checksum --exclude='.*/' ~/ /tmp/backup/
 -a — архивный режим (сохраняет атрибуты файлов, рекурсивно копирует)
 
 -v — подробный вывод (verbose)
@@ -19,10 +22,11 @@
 
 ~/ — исходная директория (домашняя папка пользователя)
 
-/tmp/backup/ — целевая директория для резервной копии ```
+/tmp/backup/ — целевая директория для резервной копии 
+```
 
-![Выполнение](https://github.com/texnoman1/netology1/blob/main/8_04/images/1.png)'
-![тестирование](https://github.com/texnoman1/netology1/blob/main/8_04/images/2.png)'
+![Выполнение](images/1.png)'
+![тестирование](images/2.png)'
 
 Задание 2
 Написать скрипт и настроить задачу на регулярное резервное копирование домашней директории пользователя с помощью rsync и cron.
@@ -32,7 +36,9 @@
 На проверку направить файл crontab и скриншот с результатом работы утилиты.
 
 создаем скрипт backup_home.sh:
-``` #!/bin/bash
+
+```bash
+/bash
 
 # Настройки
 BACKUP_DIR="/tmp/backup"
@@ -53,21 +59,24 @@ if [ $? -eq 0 ]; then
     echo "[$(date +'%Y-%m-%d %H:%M:%S')] Резервное копирование успешно завершено" >> "$LOG_FILE"
 else
     echo "[$(date +'%Y-%m-%d %H:%M:%S')] Ошибка при резервном копировании!" >> "$LOG_FILE"
-fi ```
+fi 
+```
 
 даем права на выполнение:
-``` chmod +x ~/backup_home.sh ```
+` chmod +x ~/backup_home.sh `
 Запуск вручную:
-``` ./backup_home.sh ```
+` ./backup_home.sh `
 лог:
-``` cat /var/log/backup_home.log ```
+` cat /var/log/backup_home.log `
 
 Настройка Cron:
 
-```crontab -e # открываем кронтаб
+```plaintext
+crontab -e # открываем кронтаб
 10 12 * * * /bin/bash /home/user/backup_home.sh  # запуск каждый день в 12-30
-crontab -l # проверяем список задач ```
+crontab -l # проверяем список задач 
+```
 
-![тестирование в ручном режиме](https://github.com/texnoman1/netology1/blob/main/8_04/images/3.png)'
-![Задание crontab](https://github.com/texnoman1/netology1/blob/main/8_04/images/4.png)'
-![log выполнения](https://github.com/texnoman1/netology1/blob/main/8_04/images/5.png)'
+![тестирование в ручном режиме](images/3.png)'
+![Задание crontab](images/4.png)'
+![log выполнения](images/5.png)'
