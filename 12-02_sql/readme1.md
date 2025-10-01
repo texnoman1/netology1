@@ -26,17 +26,16 @@ ALTER USER 'sys_test'@'localhost' IDENTIFIED WITH mysql_native_password BY 'pass
 
 **Решение**
 
-![Задание 1.1](images/1.png)
-![Задание 1.1](images/2.png)
+!Задание [1.1](images/1.png)
 !Задание [1.2](images/11.png)
-![Задание 1.3](images/3.png)
-![Задание 1.4](images/4.png)
-![Задание 1.5](images/5.png)
-![Задание 1.6](images/6.png)
-![Задание 1.6](images/7.png)
-![Задание 1.7](images/8.png)
-![Задание 1.7](images/9.png)
-![Задание 1.8](images/10.png)
+!Задание [1.3](images/3.png)
+!Задание [1.4](images/4.png)
+!Задание [1.5](images/5.png)
+!Задание [1.6](images/6.png)
+!Задание [1.6](images/7.png)
+!Задание [1.7](images/8.png)
+!Задание [1.7](images/9.png)
+!Задание [1.8](images/10.png)
 ---
 
 ### Задание 2
